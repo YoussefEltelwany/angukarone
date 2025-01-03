@@ -1,0 +1,46 @@
+<div class="container py-5">
+  <div class="text-center py-5">
+    <h1>portfolio component</h1>
+
+    <div class="d-flex justify-content-center align-items-center my-2">
+      <div class="line me-3 rounded"></div>
+      <i class="fa-solid fa-star"></i>
+      <div class="line ms-3 rounded"></div>
+    </div>
+
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 mt-4 g-4">
+
+      @for (imge of images; track $index) {
+        <div class="col">
+          <div (click)="showImge(imge.src)" class="position-relative overflow-hidden cust "data-bs-toggle="modal" data-bs-target="#staticBackdrop" >
+            <img  class="img-fluid rounded " [src]="imge.src" alt="imge.alt">
+            <div  class="layer-overlay position-absolute d-flex justify-content-center align-items-center rounded">
+              <i class="text-white fa-solid fa-plus fa-6x"></i>
+            </div>
+          </div>
+        </div>
+      }
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog  modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <img class="w-100" src="{{show}}" alt="">
+      </div>
+
+    </div>
+  </div>
+</div>
